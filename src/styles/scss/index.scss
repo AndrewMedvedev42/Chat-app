@@ -1,0 +1,39 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    background-color: #00cc00;
+}
+
+.main_container{
+    height: 98.5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .create_join_chat_form{
+        text-align: center;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        border-radius: 15px;
+        input{
+            border:1px grey solid;
+            border-radius: 10px;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            padding: 1rem;
+        }
+        input[type="submit"]{
+            margin:0;
+            color: white;
+            font-weight: 700;
+            background-color: #009900;
+        } 
+        input[type="submit"]:hover{
+            background-color: #008000;
+        } 
+        input[type="submit"]:active{
+            background-color: #006600;
+        } 
+    }
+}

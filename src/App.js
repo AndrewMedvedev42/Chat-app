@@ -18,30 +18,29 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <section className="main_container">
     {!showChat ? (
-      <div className="joinChatContainer">
-        <h3>Join A Chat</h3>
+      <section className="create_join_chat_form">
         <input
           type="text"
-          placeholder="John..."
+          placeholder="Your username"
           onChange={(event) => {
             setUsername(event.target.value);
           }}
         />
         <input
           type="text"
-          placeholder="Room ID..."
+          placeholder="Room name..."
           onChange={(event) => {
             setRoom(event.target.value);
           }}
         />
-        <button onClick={joinRoom}>Join A Room</button>
-      </div>
+        <input type="submit" onClick={joinRoom} value="Create / Join A Room"/>
+      </section>
     ) : (
       <Chat socket={socket} username={username} room={room} />
     )}
-  </div>
+  </section>
   );
 }
 

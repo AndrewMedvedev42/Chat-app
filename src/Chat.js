@@ -29,35 +29,31 @@ function Chat({ socket, username, room }) {
   }, [socket]);
 
   return (
-    <div className="chat-window">
-      <div className="chat-header">
-        <p>Live Chat</p>
-      </div>
-      <div className="chat-body">
+    <section className="chat_page">
+      <header className="chat_header">
+        <p>Chat: {room}</p>
+      </header>
+      <section>
           {messageList.map((messageContent) => {
             return (
-              <div
-                className="message"
-                id={username === messageContent.author ? "you" : "other"}
-              >
-                <div>
-                  <div className="message-content">
+              <article
+                className={username === messageContent.author ? "you" : "other"}>
+                <article>
                     <p>{messageContent.message}</p>
-                  </div>
-                  <div className="message-meta">
-                    <p id="time">{messageContent.time}</p>
-                    <p id="author">{messageContent.author}</p>
-                  </div>
-                </div>
-              </div>
+                    <div>
+                        <p className="time">{messageContent.time}</p>
+                        <p className="author">{messageContent.author}</p>
+                    </div>
+                </article>
+              </article>
             );
           })}
-      </div>
-      <div className="chat-footer">
+      </section>
+      <section>
         <input
           type="text"
           value={currentMessage}
-          placeholder="Hey..."
+          placeholder="Message"
           onChange={(event) => {
             setCurrentMessage(event.target.value);
           }}
@@ -65,9 +61,9 @@ function Chat({ socket, username, room }) {
             event.key === "Enter" && sendMessage();
           }}
         />
-        <button onClick={sendMessage}>&#9658;</button>
-      </div>
-    </div>
+        <button onClick={sendMessage}>Send</button>
+      </section>
+    </section>
   );
 }
 
